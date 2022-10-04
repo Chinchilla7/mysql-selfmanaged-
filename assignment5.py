@@ -12,8 +12,12 @@ connection_string = f'mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOSTN
 connection_string
 
 db = create_engine(connection_string)
+print (db.table_names())
 
-r_df = pd.read_csv('')
+r_df = pd.read_csv('data/iris.csv')
 r_df.to_sql('dummy_data', con=db, if_exists='replace')
 
-sql_query = """select * from dummy_data where gender = 'Male'"""
+sql_query = 'SELECT * from dummy_data where name="setosa"'
+
+results =pd.read_sql(sql_query, con=db)
+results
