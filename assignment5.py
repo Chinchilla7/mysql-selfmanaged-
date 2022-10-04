@@ -1,11 +1,12 @@
 #sudo apt-get install python3-dev default-libmysqlclient-dev
 #pip install pymysql
 
-from os import environ
+
 from sqlalchemy import create_engine
 import pandas as pd
 
 #file path containing credentials
+
 
 connection_string = f'mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOSTNAME}/{MYSQL_DATABASE}'
 connection_string
