@@ -4,11 +4,14 @@
 
 from sqlalchemy import create_engine
 import pandas as pd
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")
 
 #file path containing credentials
 
 
-connection_string = f'mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOSTNAME}/{MYSQL_DATABASE}'
+connection_string = f'mysql+pymysql://{config["MYSQL_USER"]}:{config["MYSQL_PASSWORD"]}@{config["MYSQL_HOSTNAME"]}/{config["MYSQL_DATABASE"]}'
 connection_string
 
 db = create_engine(connection_string)
